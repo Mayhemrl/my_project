@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить преподавателя</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Добавить преподавателя</h1>
+        <form  method="post" >
+            <label for="name">Имя преподавателя:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Добавить</button>
+        </form>
+        <a href="{{ url_for('index') }}">Назад</a>
+        <div class="message" id="successMessage">Преподаватель успешно добавлен!</div>
+    </div>
+
+    <script>
+        function addTeacher() {
+            const nameInput = document.getElementById('name');
+            const successMessage = document.getElementById('successMessage');
+
+            // Проверка, что поле не пустое
+            if (nameInput.value.trim() === '') {
+                alert('Пожалуйста, введите имя преподавателя.');
+                return false; // Отменяем отправку формы
+            }
+
+          
+            successMessage.style.display = 'block';
+            nameInput.value = ''; 
+            return false; 
+        }
+    </script>
+</body>
+</html>

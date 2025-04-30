@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить студента</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="{{ url_for('static', filename='images/12.gif') }}" alt="Логотип" style="width: 100px; margin-bottom: 20px;">
+        </header>
+        <h1>Добавить студента</h1>
+        <form method="post">
+            <label for="name">Имя студента:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="name">Имя студента:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Добавить</button>
+        </form>
+        <a href="{{ url_for('index') }}">Назад</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить Курс</title>
+   
+</head>
+<body>
+    <div class="container">
+        <h1>Добавить Курс</h1>
+        <form id="courseForm" method="post" onsubmit="return addCourse()">
+            <label for="name">Название курса:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="teacher_id">Выберите преподавателя:</label>
+            <select id="teacher_id" name="teacher_id" required>
+                {% for teacher in teachers %}
+                <option value="{{ teacher.id }}">{{ teacher.name }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="Добавить курс">
+        </form>
+        <div class="message" id="successMessage">Курс успешно добавлен!</div>
+        <a href="{{ url_for('index') }}">Назад</a>
+    </div>
+
+    <script>
+    function addCourse() {
+        const nameInput = document.getElementById('name');
+        const successMessage = document.getElementById('successMessage');
+
+        // Проверка, что поле не пустое
+        if (nameInput.value.trim() === '') {
+            alert('Пожалуйста, введите название курса.');
+            return false; // Отменяем отправку формы
+        }
+
+        // Здесь можно добавить код для отправки данных на сервер (например, AJAX)
+
+        // Отображаем сообщение об успехе
+    }
+    </script>
+   </body>
+</html>
